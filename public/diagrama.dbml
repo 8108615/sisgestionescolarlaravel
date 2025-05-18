@@ -15,3 +15,8 @@ Table gestiones {
     nombre varchar
     
 }
+Table niveles {
+    id int [pk, increment] //primary key
+    nombre varchar
+    
+}
