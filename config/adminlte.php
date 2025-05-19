@@ -313,9 +313,27 @@ return [
             'classes' => 'bg-blue text-white',
         ],
         [
+            'text' => 'Periodos',
+            'url' => 'admin/periodos',
+            'icon' => 'fas fa-fw fa-calendar-alt',
+            'classes' => 'bg-blue text-white',
+        ],
+        [
             'text' => 'Niveles',
             'url' => 'admin/niveles',
             'icon' => 'fas fa-fw fa-layer-group',
+            'classes' => 'bg-blue text-white',
+        ],
+        [
+            'text' => 'Grados',
+            'url' => 'admin/grados',
+            'icon' => 'fas fa-fw fa-list-alt',
+            'classes' => 'bg-blue text-white',
+        ],
+        [
+            'text' => 'Turnos',
+            'url' => 'admin/turnos',
+            'icon' => 'fas fa-fw fa-clock',
             'classes' => 'bg-blue text-white',
         ],
         
