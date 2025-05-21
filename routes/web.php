@@ -6,13 +6,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index.home')->middleware('auth');
+Route::get('/admin', [App\Http\Controllers\AdminController::class, 'index'])->name('admin.index')->middleware('auth');
 
 // Rutas para la Configuracion del Sistema
 Route::get('/admin/configuracion',[App\Http\Controllers\ConfiguracionController::class, 'index'])->name('admin.configuracion.index')->middleware('auth');
@@ -43,6 +40,12 @@ Route::get('/admin/grados',[App\Http\Controllers\GradoController::class, 'index'
 Route::post('/admin/grados/create',[App\Http\Controllers\GradoController::class, 'store'])->name('admin.grados.store')->middleware('auth');
 Route::put('/admin/grados/{id}',[App\Http\Controllers\GradoController::class, 'update'])->name('admin.grados.update')->middleware('auth');
 Route::delete('/admin/grados/{id}',[App\Http\Controllers\GradoController::class, 'destroy'])->name('admin.grados.destroy')->middleware('auth');
+
+//Rutas para los Paralelos
+Route::get('/admin/paralelos',[App\Http\Controllers\ParaleloController::class, 'index'])->name('admin.paralelos.index')->middleware('auth');
+Route::post('/admin/paralelos/create',[App\Http\Controllers\ParaleloController::class, 'store'])->name('admin.paralelos.store')->middleware('auth');
+Route::put('/admin/paralelos/{id}',[App\Http\Controllers\ParaleloController::class, 'update'])->name('admin.paralelos.update')->middleware('auth');
+Route::delete('/admin/paralelos/{id}',[App\Http\Controllers\ParaleloController::class, 'destroy'])->name('admin.paralelos.destroy')->middleware('auth');
 
 //Rutas para los Turnos
 Route::get('/admin/turnos',[App\Http\Controllers\TurnoController::class, 'index'])->name('admin.turnos.index')->middleware('auth');

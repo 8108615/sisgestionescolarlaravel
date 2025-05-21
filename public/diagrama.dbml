@@ -28,6 +28,11 @@ Table grados {
     nombre varchar
     nivel_id int [ref: > niveles.id]
 }
+Table paralelos {
+    id int [pk, increment] //primary key
+    nombre varchar
+    grado_id int [ref: > grados.id]
+}
 Table turnos {
     id int [pk, increment] //primary key
     nombre varchar

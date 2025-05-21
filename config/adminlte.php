@@ -331,6 +331,12 @@ return [
             'classes' => 'bg-blue text-white',
         ],
         [
+            'text' => 'Paralelos',
+            'url' => 'admin/paralelos',
+            'icon' => 'fas fa-fw fa-clone',
+            'classes' => 'bg-blue text-white',
+        ],
+        [
             'text' => 'Turnos',
             'url' => 'admin/turnos',
             'icon' => 'fas fa-fw fa-clock',
