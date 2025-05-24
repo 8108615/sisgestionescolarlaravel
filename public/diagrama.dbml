@@ -37,3 +37,7 @@ Table turnos {
     id int [pk, increment] //primary key
     nombre varchar
 }
+Table materias {
+    id int [pk, increment] //primary key
+    nombre varchar
+}
