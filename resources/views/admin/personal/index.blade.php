@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1><b>Listado de Roles</b></h1>
+    <h1><b>Listado del Personal {{ $tipo }}</b></h1>
     <hr>
 @stop
 
@@ -11,10 +11,10 @@
         <div class="col-md-6">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Roles Registrados</h3>
+                    <h3 class="card-title">Personal {{ $tipo }} Registrado</h3>
 
                     <div class="card-tools">
-                        <a href="{{ url('admin/roles/create') }}" class="btn btn-primary"> Crear Nuevo Rol</a>
+                        <a href="{{ url('admin/personal/create/'.$tipo) }}" class="btn btn-primary"> Crear Nuevo Personal</a>
                     </div>
                     <!-- /.card-tools -->
                 </div>
@@ -24,32 +24,32 @@
                         <thead>
                             <tr>
                                 <th>Nro</th>
-                                <th>Nombre del Rol</th>
+                                <th></th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($roles as $role)
+                            @foreach ($personals as $personal)
                                 <tr>
                                     <td style="text-align: center">{{ $loop->iteration }}</td>
-                                    <td>{{ $role->name }}</td>
+                                    <td></td>
                                     <td>
                                         <div class="row d-flex justify-content-center">
-                                            <a href="{{ url('admin/roles/' .$role->id.'/edit') }}"
+                                            <a href="{{ url('admin/personal/' .$personal->id.'/edit') }}"
                                                 class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
-                                            <form action="{{ url('/admin/roles/'.$role->id) }}" method="post"
-                                                id="miFormulario{{ $role->id }}">
+                                            <form action="{{ url('/admin/personal/'.$personal->id) }}" method="post"
+                                                id="miFormulario{{ $personal->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="preguntar{{ $role->id }}(event)">
+                                                    onclick="preguntar{{ $personal->id }}(event)">
                                                     <i class="fas fa-trash"></i> Eliminar
                                                 </button>
                                             </form>
                                         </div>
 
                                         <script>
-                                            function preguntar{{ $role->id }}(event) {
+                                            function preguntar{{ $personal->id }}(event) {
                                                 event.preventDefault();
 
                                                 Swal.fire({
@@ -64,7 +64,7 @@
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         // JavaScript puro para enviar el formulario
-                                                        document.getElementById('miFormulario{{ $role->id }}').submit();
+                                                        document.getElementById('miFormulario{{ $personal->id }}').submit();
                                                     }
                                                 });
                                             }

@@ -24,7 +24,7 @@
                 <img src="{{ url('/img/calendario.gif') }}" width="70px" alt="">
                 <div class="info-box-content">
                     <span class="info-box-text"><b>Periodos Registrados</b></span>
-                    <span class="info-box-number">{{ $total_periodos }} Periodos</span>
+                    <span class="info-box-number" style="color: #1d20fa; font-size:15pt">{{ $total_periodos }} Periodos</span>
                 </div>
             </div>
         </div>
@@ -73,6 +73,16 @@
                 <div class="info-box-content">
                     <span class="info-box-text"><b>Materias Registradas</b></span>
                     <span class="info-box-number" style="color: #1d20fa; font-size:15pt">{{ $total_materias }} Materias</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box zoomP">
+                <img src="{{ url('/img/roles.gif') }}" width="70px" alt="">
+                <div class="info-box-content">
+                    <span class="info-box-text"><b>Roles Registrados</b></span>
+                    <span class="info-box-number" style="color: #1d20fa; font-size:15pt">{{ $total_roles }} Roles</span>
                 </div>
             </div>
         </div>

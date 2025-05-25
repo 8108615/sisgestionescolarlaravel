@@ -22,11 +22,15 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
+
+        $this->call(RoleSeeder::class);
+
+
         User::create([
             'name' => 'Erick Fernando Morales Gil',
             'email' => 'erick@gmail.com',
             'password' => Hash::make('12345678')
-        ]);
+        ])->assignRole('ADMINISTRADOR');
         Configuracion::create([
             'nombre' => 'Universidad Erick',
             'descripcion' => 'Universidad para Todo',
