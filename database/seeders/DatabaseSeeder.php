@@ -9,6 +9,7 @@ use App\Models\Materia;
 use App\Models\Nivel;
 use App\Models\Paralelo;
 use App\Models\Periodo;
+use App\Models\Personal;
 use App\Models\Turno;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -108,5 +109,92 @@ class DatabaseSeeder extends Seeder
         Materia::create(['nombre' => 'QUIMICA']);
         Materia::create(['nombre' => 'VALORES, ESPIRITUALIDADES Y RELIGIONES']);
         Materia::create(['nombre' => 'TECNICA TECNOLOGIA GENERAL']);
+
+        //Administrativo 1
+        user::create(['name' => 'Juan Mendoza', 'email' => 'juan.mendoza@gmail.com', 'password' => Hash::make('87654321')])->assignRole('DIRECTOR/A GENERAL');
+        Personal::create([
+            'usuario_id' => User::latest()->first()->id,
+            'tipo' => 'administrativo',
+            'nombres' => 'Juan',
+            'apellidos' => 'Mendoza',
+            'ci' => '87654321',
+            'fecha_nacimiento' => '1985-05-15',
+            'direccion' => 'Calle Falsa 123',
+            'telefono' => '78584512',
+            'profesion' => 'Lic. en Matematicas',
+            'foto' => 'uploads/fotos/juan.jpg',
+        ]);
+        //Administrativo 2
+        user::create(['name' => 'Carlos Rojas', 'email' => 'carlos.rojas@gmail.com', 'password' => Hash::make('76543210')])->assignRole('DIRECTOR/A ACADÉMICO');
+        Personal::create([
+            'usuario_id' => User::latest()->first()->id,
+            'tipo' => 'Administrativo',
+            'nombres' => 'Carlos',
+            'apellidos' => 'Rojas',
+            'ci' => '76543210',
+            'fecha_nacimiento' => '1978-11-22',
+            'direccion' => 'Calle Junin 456',
+            'telefono' => '65432109',
+            'profesion' => 'Contador Publico',
+            'foto' => 'uploads/fotos/'.time().'carlos.jpg',
+        ]);
+        //Administrativo 3
+        user::create(['name' => 'Ana Torres', 'email' => 'ana.torres@gmail.com', 'password' => Hash::make('65432109')])->assignRole('DIRECTOR/A ADMINISTRATIVO');
+        Personal::create([
+            'usuario_id' => User::latest()->first()->id,
+            'tipo' => 'Administrativo',
+            'nombres' => 'Ana',
+            'apellidos' => 'Torres',
+            'ci' => '65432109',
+            'fecha_nacimiento' => '1985-05-15',
+            'direccion' => 'Calle Bolivar 123',
+            'telefono' => '78584512',
+            'profesion' => 'Lic. en Administracion',
+            'foto' => 'uploads/fotos/'.time().'ana.jpg',
+        ]);
+        //Administrativo 4
+        user::create(['name' => 'Maria Lopez', 'email' => 'maria.lopes@gmail.com', 'password' => Hash::make('54321098')])->assignRole('SECRETARIO/A');
+        Personal::create([
+            'usuario_id' => User::latest()->first()->id,
+            'tipo' => 'Administrativo',
+            'nombres' => 'Maria',
+            'apellidos' => 'Lopez',
+            'ci' => '54321098',
+            'fecha_nacimiento' => '1990-03-10',
+            'direccion' => 'Calle Sucre 789',
+            'telefono' => '12345678',
+            'profesion' => 'Lic. en Derecho',
+            'foto' => 'uploads/fotos/'.time().'maria.jpg',
+        ]);
+        //administrativo 5
+        user::create(['name' => 'Pedro Gutierrez', 'email' => 'pedro.gutierrez@gmail.com', 'password' => Hash::make('43210987')])->assignRole('CAJERO/A');
+        Personal::create([
+            'usuario_id' => User::latest()->first()->id,
+            'tipo' => 'Administrativo',
+            'nombres' => 'Pedro',
+            'apellidos' => 'Gutierrez',
+            'ci' => '43210987',
+            'fecha_nacimiento' => '1988-07-20',
+            'direccion' => 'Calle Ayacucho 321',
+            'telefono' => '98765432',
+            'profesion' => 'Lic. en Contabilidad',
+            'foto' => 'uploads/fotos/'.time().'pedro.jpg',
+        ]);
+
+        //Administrativo 6
+        user::create(['name' => 'Laura Fernandez', 'email' => 'laura.fernandez@gmail.com', 'password' => Hash::make('32109876')])->assignRole('REGENTE');
+        Personal::create([
+            'usuario_id' => User::latest()->first()->id,
+            'tipo' => 'Administrativo',
+            'nombres' => 'Laura',
+            'apellidos' => 'Fernandez',
+            'ci' => '32109876',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'laura.jpg',
+            'created_at' => now()->subYears(3), //fecha de ingreso hace 3 años
+        ]);
     }
 }
