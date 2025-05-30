@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1><b>Listado del Personal {{ $tipo }}</b></h1>
+    <h1><b>Listado de Estudiantes </b></h1>
     <hr>
 @stop
 
@@ -11,11 +11,10 @@
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Personal {{ $tipo }} Registrado</h3>
+                    <h3 class="card-title">Estudiantes Registrados</h3>
 
                     <div class="card-tools">
-                        <a href="{{ url('admin/personal/create/' . $tipo) }}" class="btn btn-primary"> Crear Nuevo
-                            Personal</a>
+                        <a href="{{ url('admin/estudiantes/nuevos/create') }}" class="btn btn-primary"> Crear Nuevo Estudiante</a>
                     </div>
                     <!-- /.card-tools -->
                 </div>
@@ -25,50 +24,36 @@
                         <thead>
                             <tr>
                                 <th>Nro</th>
-                                <th style="text-align: center">Rol</th>
-                                <th style="text-align: center">Apellidos y Nombres</th>
-                                <th style="text-align: center">Carnet de Identidads</th>
-                                <th style="text-align: center">Telefono</th>
-                                <th style="text-align: center">Profesion</th>
-                                <th style="text-align: center">Correo</th>
+                                
                                 <th style="text-align: center">Foto</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($personals as $personal)
+                            @foreach ($estudiantes as $estudiante)
                                 <tr>
                                     <td style="text-align: center">{{ $loop->iteration }}</td>
-                                    <td>{{ $personal->usuario->roles->pluck('name')->implode(' , ') }}</td>
-                                    <td>{{ $personal->apellidos }}{{ $personal->nombres }}</td>
-                                    <td>{{ $personal->ci }}</td>
-                                    <td>{{ $personal->fecha_nacimiento }}</td>
-                                    <td>{{ $personal->telefono }}</td>
-                                    <td>{{ $personal->profesion }}</td>
-                                    <td>{{ $personal->usuario->email }}</td>
-                                    <td style="text-align: center">
-                                        <img src="{{ url($personal->foto) }}" width="100px" alt="">
-                                    </td>
+                                    
                                     <td>
                                         <div class="row d-flex justify-content-center">
-                                            <a href="{{ url('admin/personal/' . $personal->id.'/formaciones') }}" class="btn btn-warning btn-sm">
+                                            <a href="{{ url('admin/estudiantes/' . $estudiante->id.'/formaciones') }}" class="btn btn-warning btn-sm">
                                                 <i class="fas fa-tasks"></i> Formaciones
                                             </a>
-                                            <a href="{{ url('admin/personal/show/' . $personal->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Ver</a>
-                                            <a href="{{ url('admin/personal/' . $personal->id . '/edit') }}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
-                                            <form action="{{ url('/admin/personal/' . $personal->id) }}" method="post"
-                                                id="miFormulario{{ $personal->id }}">
+                                            <a href="{{ url('admin/estudiantes/show/' . $estudiante->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Ver</a>
+                                            <a href="{{ url('admin/estudiantes/' . $estudiante->id . '/edit') }}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
+                                            <form action="{{ url('/admin/estudiantes/' . $estudiante->id) }}" method="post"
+                                                id="miFormulario{{ $estudiante->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="preguntar{{ $personal->id }}(event)">
+                                                    onclick="preguntar{{ $estudiante->id }}(event)">
                                                     <i class="fas fa-trash"></i> Eliminar
                                                 </button>
                                             </form>
                                         </div>
 
                                         <script>
-                                            function preguntar{{ $personal->id }}(event) {
+                                            function preguntar{{ $estudiante->id }}(event) {
                                                 event.preventDefault();
 
                                                 Swal.fire({
@@ -83,7 +68,7 @@
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         // JavaScript puro para enviar el formulario
-                                                        document.getElementById('miFormulario{{ $personal->id }}').submit();
+                                                        document.getElementById('miFormulario{{ $estudiante->id }}').submit();
                                                     }
                                                 });
                                             }
@@ -168,10 +153,10 @@
                 "pageLength": 5,
                 "language": {
                     "emptyTable": "No hay información",
-                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Personal",
-                    "infoEmpty": "Mostrando 0 a 0 de 0 Personal",
-                    "infoFiltered": "(Filtrado de _MAX_ total Personal)",
-                    "lengthMenu": "Mostrar _MENU_ Personal",
+                    "info": "Mostrando _START_ a _END_ de _TOTAL_ Estudiantes",
+                    "infoEmpty": "Mostrando 0 a 0 de 0 Estudiantes",
+                    "infoFiltered": "(Filtrado de _MAX_ total Estudiantes)",
+                    "lengthMenu": "Mostrar _MENU_ Estudiantes",
                     "loadingRecords": "Cargando...",
                     "processing": "Procesando...",
                     "search": "Buscador:",

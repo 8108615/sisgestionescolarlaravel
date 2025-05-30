@@ -62,3 +62,38 @@ Table personals {
     profesion varchar
     foto varchar
 }
+Table formaciones {
+    id int [pk, increment] //primary key
+    personal_id int [ref: > personals.id]
+    titulo varchar
+    institucion varchar
+    nivel varchar
+    fecha_graduacion date
+    archivo varchar
+}
+Table ppffs {
+    id int [pk, increment] //primary key
+    nombre varchar
+    apellidos varchar
+    ci varchar
+    fecha_nacimiento date
+    telefono varchar
+    parentesco varchar
+    ocupacion varchar
+    direccion varchar
+}
+
+Table estudiantes {
+    id int [pk, increment] //primary key
+    usuario_id int [ref: > users.id]
+    ppffs_id int [ref: > ppffs.id]
+    nombres varchar
+    apellidos varchar
+    ci varchar
+    fecha_nacimiento date
+    direccion varchar
+    genero varchar
+    telefono varchar
+    foto varchar
+    estado varchar
+}

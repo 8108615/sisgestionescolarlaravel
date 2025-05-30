@@ -78,3 +78,19 @@ Route::get('/admin/personal/show/{id}',[App\Http\Controllers\PersonalController:
 Route::get('/admin/personal/{id}/edit',[App\Http\Controllers\PersonalController::class, 'edit'])->name('admin.personal.edit')->middleware('auth');
 Route::put('/admin/personal/{id}',[App\Http\Controllers\PersonalController::class, 'update'])->name('admin.personal.update')->middleware('auth');
 Route::delete('/admin/personal/{id}',[App\Http\Controllers\PersonalController::class, 'destroy'])->name('admin.personal.destroy')->middleware('auth');
+
+//rutas para las formacion del personal
+Route::get('/admin/personal/{id}/formaciones',[App\Http\Controllers\FormacionController::class, 'index'])->name('admin.formaciones.index')->middleware('auth');
+Route::get('/admin/personal/{id}/formaciones/create',[App\Http\Controllers\FormacionController::class, 'create'])->name('admin.formaciones.create')->middleware('auth');
+Route::post('/admin/personal/{id}/formaciones/create',[App\Http\Controllers\FormacionController::class, 'store'])->name('admin.formaciones.store')->middleware('auth');
+Route::get('/admin/personal/formaciones/{id}',[App\Http\Controllers\FormacionController::class, 'edit'])->name('admin.formaciones.edit')->middleware('auth');
+Route::put('/admin/personal/formaciones/{id}',[App\Http\Controllers\FormacionController::class, 'update'])->name('admin.formaciones.update')->middleware('auth');
+Route::delete('/admin/personal/formaciones/{id}',[App\Http\Controllers\FormacionController::class, 'destroy'])->name('admin.formaciones.destroy')->middleware('auth');
+
+//rutas para los Estudiantes del Sistema
+Route::get('/admin/estudiantes/nuevos',[App\Http\Controllers\EstudianteController::class, 'index'])->name('admin.estudiantes.index')->middleware('auth');
+Route::get('/admin/estudiantes/nuevos/create',[App\Http\Controllers\EstudianteController::class, 'create'])->name('admin.estudiantes.create')->middleware('auth');
+Route::post('/admin/estudiantes/nuevos/create',[App\Http\Controllers\EstudianteController::class, 'store'])->name('admin.estudiantes.store')->middleware('auth');
+Route::get('/admin/estudiantes/nuevos/{id}/edit',[App\Http\Controllers\EstudianteController::class, 'edit'])->name('admin.estudiantes.edit')->middleware('auth');
+Route::put('/admin/estudiantes/nuevos/{id}',[App\Http\Controllers\EstudianteController::class, 'update'])->name('admin.estudiantes.update')->middleware('auth');
+Route::delete('/admin/estudiantes/nuevos/{id}',[App\Http\Controllers\EstudianteController::class, 'destroy'])->name('admin.estudiantes.destroy')->middleware('auth');

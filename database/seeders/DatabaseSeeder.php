@@ -111,9 +111,10 @@ class DatabaseSeeder extends Seeder
         Materia::create(['nombre' => 'TECNICA TECNOLOGIA GENERAL']);
 
         //Administrativo 1
+        //Administrativo 1
         user::create(['name' => 'Juan Mendoza', 'email' => 'juan.mendoza@gmail.com', 'password' => Hash::make('87654321')])->assignRole('DIRECTOR/A GENERAL');
         Personal::create([
-            'usuario_id' => User::latest()->first()->id,
+            'usuario_id' => 2,
             'tipo' => 'administrativo',
             'nombres' => 'Juan',
             'apellidos' => 'Mendoza',
@@ -127,7 +128,7 @@ class DatabaseSeeder extends Seeder
         //Administrativo 2
         user::create(['name' => 'Carlos Rojas', 'email' => 'carlos.rojas@gmail.com', 'password' => Hash::make('76543210')])->assignRole('DIRECTOR/A ACADÉMICO');
         Personal::create([
-            'usuario_id' => User::latest()->first()->id,
+            'usuario_id' => 3,
             'tipo' => 'Administrativo',
             'nombres' => 'Carlos',
             'apellidos' => 'Rojas',
@@ -141,7 +142,7 @@ class DatabaseSeeder extends Seeder
         //Administrativo 3
         user::create(['name' => 'Ana Torres', 'email' => 'ana.torres@gmail.com', 'password' => Hash::make('65432109')])->assignRole('DIRECTOR/A ADMINISTRATIVO');
         Personal::create([
-            'usuario_id' => User::latest()->first()->id,
+            'usuario_id' => 4,
             'tipo' => 'Administrativo',
             'nombres' => 'Ana',
             'apellidos' => 'Torres',
@@ -155,7 +156,7 @@ class DatabaseSeeder extends Seeder
         //Administrativo 4
         user::create(['name' => 'Maria Lopez', 'email' => 'maria.lopes@gmail.com', 'password' => Hash::make('54321098')])->assignRole('SECRETARIO/A');
         Personal::create([
-            'usuario_id' => User::latest()->first()->id,
+            'usuario_id' => 5,
             'tipo' => 'Administrativo',
             'nombres' => 'Maria',
             'apellidos' => 'Lopez',
@@ -169,7 +170,7 @@ class DatabaseSeeder extends Seeder
         //administrativo 5
         user::create(['name' => 'Pedro Gutierrez', 'email' => 'pedro.gutierrez@gmail.com', 'password' => Hash::make('43210987')])->assignRole('CAJERO/A');
         Personal::create([
-            'usuario_id' => User::latest()->first()->id,
+            'usuario_id' => 6,
             'tipo' => 'Administrativo',
             'nombres' => 'Pedro',
             'apellidos' => 'Gutierrez',
@@ -184,7 +185,7 @@ class DatabaseSeeder extends Seeder
         //Administrativo 6
         user::create(['name' => 'Laura Fernandez', 'email' => 'laura.fernandez@gmail.com', 'password' => Hash::make('32109876')])->assignRole('REGENTE');
         Personal::create([
-            'usuario_id' => User::latest()->first()->id,
+            'usuario_id' => 7,
             'tipo' => 'Administrativo',
             'nombres' => 'Laura',
             'apellidos' => 'Fernandez',
@@ -196,5 +197,152 @@ class DatabaseSeeder extends Seeder
             'foto' => 'uploads/fotos/'.time().'laura.jpg',
             'created_at' => now()->subYears(3), //fecha de ingreso hace 3 años
         ]);
+
+        //Docente 1
+        user::create(['name' => 'Maria Fernandez', 'email' => 'maria.fernandez@gmail.com', 'password' => Hash::make('9876543')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 8,
+            'tipo' => 'docente',
+            'nombres' => 'Maria',
+            'apellidos' => 'Fernandez',
+            'ci' => '9876543',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_maria.jpg',
+        ]);
+        //Docente 2
+        user::create(['name' => 'Carlos Rios', 'email' => 'carlos.rios@gmail.com', 'password' => Hash::make('6543210')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 9,
+            'tipo' => 'docente',
+            'nombres' => 'Carlos',
+            'apellidos' => 'Rios',
+            'ci' => '6543210',
+            'fecha_nacimiento' => '1990-01-01',
+            'direccion' => 'Calle Falsa 123',
+            'telefono' => '12345678',
+            'profesion' => 'Lic. en Educacion',
+            'foto' => 'uploads/fotos/'.time().'_carlos.jpg',
+        ]);
+        //Docente 3
+        user::create(['name' => 'Ana Morales', 'email' => 'ana.morales@gmail.com', 'password' => Hash::make('3210987')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 10,
+            'tipo' => 'docente',
+            'nombres' => 'Ana',
+            'apellidos' => 'Morales',
+            'ci' => '3210987',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_ana.jpg',
+        ]);
+
+        //Docente 4
+        user::create(['name' => 'Jorge Pacheco', 'email' => 'jorge.pacheco@gmail.com', 'password' => Hash::make('7890123')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 11,
+            'tipo' => 'docente',
+            'nombres' => 'Jorge',
+            'apellidos' => 'Pacheco',
+            'ci' => '7890123',
+            'fecha_nacimiento' => '1990-01-01',
+            'direccion' => 'Calle Falsa 123',
+            'telefono' => '12345678',
+            'profesion' => 'Lic. en Educacion',
+            'foto' => 'uploads/fotos/'.time().'_jorge.jpg',
+        ]);
+        //Docente 5
+        user::create(['name' => 'Lucia Mendoza', 'email' => 'lucia.mendoza@gmail.com', 'password' => Hash::make('4567890')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 12,
+            'tipo' => 'docente',
+            'nombres' => 'Lucia',
+            'apellidos' => 'Mendoza',
+            'ci' => '4567890',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_lucia.jpg',
+        ]);
+
+        //Docente 6
+        user::create(['name' => 'Roberto Sanchez', 'email' => 'roberto.sanchez@gmail.com', 'password' => Hash::make('23456789')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 13,
+            'tipo' => 'docente',
+            'nombres' => 'Roberto',
+            'apellidos' => 'Sanchez',
+            'ci' => '23456789',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_roberto.jpg',
+        ]);
+        //Docente 7
+        user::create(['name' => 'Sofia Rojas ', 'email' => 'sofia.rojas@gmail.com', 'password' => Hash::make('8901234')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 14,
+            'tipo' => 'docente',
+            'nombres' => 'Sofia',
+            'apellidos' => 'Rojas',
+            'ci' => '8901234',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_sofia.jpg',
+        ]);
+
+        //Docente 8
+        user::create(['name' => 'Mario olmo', 'email' => 'mario.olmo@gmail.com', 'password' => Hash::make('12131415')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 15,
+            'tipo' => 'docente',
+            'nombres' => 'Mario',
+            'apellidos' => 'Olmo',
+            'ci' => '12131415',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_mario.jpg',
+        ]);
+
+        //Docente 9
+        user::create(['name' => 'Maurio Añez', 'email' => 'mauricio.añez@gmail.com', 'password' => Hash::make('16171819')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 16,
+            'tipo' => 'docente',
+            'nombres' => 'Maurio',
+            'apellidos' => 'Añez',
+            'ci' => '16171819',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_mauricio.jpg',
+        ]);
+
+        //Docente 10
+        user::create(['name' => 'Maria Leny', 'email' => 'maria.leny@gmail.com', 'password' => Hash::make('13141516')])->assignRole('DOCENTE');
+        Personal::create([
+            'usuario_id' => 17,
+            'tipo' => 'docente',
+            'nombres' => 'Maria',
+            'apellidos' => 'Leny',
+            'ci' => '13141516',
+            'fecha_nacimiento' => '1995-08-30',
+            'direccion' => 'Calle Libertad 456',
+            'telefono' => '65432198',
+            'profesion' => 'Lic. en Psicologia',
+            'foto' => 'uploads/fotos/'.time().'_marialeny.jpg',
+        ]);
+
     }
 }
