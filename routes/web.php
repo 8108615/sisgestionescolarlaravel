@@ -91,6 +91,7 @@ Route::delete('/admin/personal/formaciones/{id}',[App\Http\Controllers\Formacion
 Route::get('/admin/estudiantes/nuevos',[App\Http\Controllers\EstudianteController::class, 'index'])->name('admin.estudiantes.index')->middleware('auth');
 Route::get('/admin/estudiantes/nuevos/create',[App\Http\Controllers\EstudianteController::class, 'create'])->name('admin.estudiantes.create')->middleware('auth');
 Route::post('/admin/estudiantes/nuevos/create',[App\Http\Controllers\EstudianteController::class, 'store'])->name('admin.estudiantes.store')->middleware('auth');
-Route::get('/admin/estudiantes/nuevos/{id}/edit',[App\Http\Controllers\EstudianteController::class, 'edit'])->name('admin.estudiantes.edit')->middleware('auth');
-Route::put('/admin/estudiantes/nuevos/{id}',[App\Http\Controllers\EstudianteController::class, 'update'])->name('admin.estudiantes.update')->middleware('auth');
-Route::delete('/admin/estudiantes/nuevos/{id}',[App\Http\Controllers\EstudianteController::class, 'destroy'])->name('admin.estudiantes.destroy')->middleware('auth');
+
+//rutas para crear a los padres de familia de Estudiante
+Route::post('/admin/estudiantes/ppff/create',[App\Http\Controllers\PpffController::class, 'store'])->name('admin.ppffs.store')->middleware('auth');
+

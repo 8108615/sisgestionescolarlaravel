@@ -23,7 +23,7 @@ return new class extends Migration
             $table->string('direccion');
             $table->string('foto');
             $table->enum('genero', ['masculino', 'femenino']);
-            $table->enum('estado_civil', ['activo', 'inactivo']);
+            $table->enum('estado', ['activo', 'inactivo']);
             $table->timestamps();
         });
     }

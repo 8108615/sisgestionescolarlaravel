@@ -28,7 +28,31 @@ class PpffController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$datos = request()->all();
+        //return response()->json($datos);
+        $request->validate([
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'ci' => 'required',
+            'fecha_nacimiento' => 'required',
+            'telefono' => 'required',
+            'parentesco' => 'required',
+            'ocupacion' => 'required',
+            'direccion' => 'required',
+        ]);
+        $ppff = new Ppff();
+        $ppff->nombres = $request->nombres;
+        $ppff->apellidos = $request->apellidos;
+        $ppff->ci = $request->ci;
+        $ppff->fecha_nacimiento = $request->fecha_nacimiento;
+        $ppff->telefono = $request->telefono;
+        $ppff->parentesco = $request->parentesco;
+        $ppff->ocupacion = $request->ocupacion;
+        $ppff->direccion = $request->direccion;
+        $ppff->save();
+        return redirect()->back()
+            ->with('mensaje', 'Se Registro al Padre de Familia Correctamente')
+            ->with('icono', 'success');
     }
 
     /**

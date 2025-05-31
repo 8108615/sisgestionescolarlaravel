@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Estudiante;
 use App\Models\Ppff;
 use Illuminate\Http\Request;
+use Spatie\Permission\Models\Role;
 
 class EstudianteController extends Controller
 {
@@ -23,7 +24,8 @@ class EstudianteController extends Controller
     public function create()
     {
         $ppffs = Ppff::all();
-        return view('admin.estudiantes.nuevos.create', compact('ppffs'));
+        $roles = Role::all();
+        return view('admin.estudiantes.nuevos.create', compact('ppffs', 'roles'));
     }
 
     /**
@@ -31,7 +33,22 @@ class EstudianteController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //$datos = request()->all();
+        //return response()->json($datos);
+        $request->validate([
+            'ppff_id' => 'required',
+            'rol' => 'required',
+            'nombres' => 'required',
+            'apellidos' => 'required',
+            'ci' => 'required|unique:estudiantes',
+            'fecha_nacimiento' => 'required',
+            'telefono' => 'required',
+            'genero' => 'required',
+            'email' => 'required|unique:users',
+            'direccion' => 'required',
+            'foto' => 'required',
+        ]);
+        
     }
 
     /**
