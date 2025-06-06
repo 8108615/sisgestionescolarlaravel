@@ -48,6 +48,7 @@ class PersonalController extends Controller
             'direccion' => 'required',
             'tipo' => 'required',
         ]);
+        
         $usuario = new User();
         $usuario->name = $request->apellidos . ' ' . $request->nombres;
         $usuario->email = $request->email;

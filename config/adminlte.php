@@ -372,21 +372,24 @@ return [
             ],
         ],
         [
+            'text' => 'Padres de Familia',
+            'icon' => 'fas fa-fw fa-house-user',
+            'url' => 'admin/ppffs',
+            'classes' => 'bg-blue text-white',
+        ],
+
+        [
             'text' => 'Estudiantes',
             'icon' => 'fas fa-fw fa-user-graduate',
+            'url' => 'admin/estudiantes',
             'classes' => 'bg-blue text-white',
-            'submenu' => [
-                [
-                    'text' => 'Nuevos',
-                    'url' => 'admin/estudiantes/nuevos',
-                    'classes' => 'bg-white text-black',
-                ],
-                [
-                    'text' => 'Matriculacion',
-                    'url' => 'admin/estudiantes/matriculacion',
-                    'classes' => 'bg-white text-black',
-                ],
-            ],
+        ],
+
+        [
+            'text' => 'Matriculaciones',
+            'url' => 'admin/matriculaciones',
+            'icon' => 'fas fa-fw fa-clipboard-list',
+            'classes' => 'bg-blue text-white',
         ],
     ],
 
@@ -491,7 +494,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',

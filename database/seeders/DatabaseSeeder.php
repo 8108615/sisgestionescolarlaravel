@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 use App\Models\Configuracion;
+use App\Models\Estudiante;
 use App\Models\Gestion;
 use App\Models\Grado;
 use App\Models\Materia;
@@ -10,6 +11,7 @@ use App\Models\Nivel;
 use App\Models\Paralelo;
 use App\Models\Periodo;
 use App\Models\Personal;
+use App\Models\Ppff;
 use App\Models\Turno;
 use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
@@ -343,6 +345,35 @@ class DatabaseSeeder extends Seeder
             'profesion' => 'Lic. en Psicologia',
             'foto' => 'uploads/fotos/'.time().'_marialeny.jpg',
         ]);
+
+        Ppff::create(['nombres' => 'Luis Fernando','apellidos'=>'Gomez Perez','ci'=>'11112222','fecha_nacimiento'=> '1981-06-18','telefono'=> '70112233','parentesco'=>'Padre','ocupacion'=>'Ingeniero de Sistemas','direccion'=>'Av cumavi']);
+        Ppff::create(['nombres' => 'Maria Luisa','apellidos'=>'Alba Rios','ci'=>'22223333','fecha_nacimiento'=> '1982-03-22','telefono'=> '70223344','parentesco'=>'Madre','ocupacion'=>'Ama de Casa','direccion'=>'Av eucalipto']);
+        Ppff::create(['nombres' => 'Roberto Carlos','apellidos'=>'Mendez Flores','ci'=>'33334444','fecha_nacimiento'=> '1979-03-15','telefono'=> '70334455','parentesco'=>'Hermana','ocupacion'=>'Estudiante','direccion'=>'Av la Salle']);
+        Ppff::create(['nombres' => 'Ana Patricia','apellidos'=>'Diaz Castro','ci'=>'44445555','fecha_nacimiento'=> '1982-11-30','telefono'=> '70445566','parentesco'=>'Madre','ocupacion'=>'Secretaria','direccion'=>'Villa 1ero de Mayo']);
+        Ppff::create(['nombres' => 'Gabriela','apellidos'=>'Torrez Mendoza','ci'=>'55556666','fecha_nacimiento'=> '1986-07-20','telefono'=> '70556677','parentesco'=>'Madre','ocupacion'=>'Secretaria','direccion'=>'Doble Via la Guardia']);
+        Ppff::create(['nombres' => 'Carolina','apellidos'=>'Romero Salazar','ci'=>'66667777','fecha_nacimiento'=> '1988-08-21','telefono'=> '70667788','parentesco'=>'Hermana','ocupacion'=>'Estudiante','direccion'=>'Av Banzer']);
+        Ppff::create(['nombres' => 'Mario','apellidos'=>'Suarez Velasco','ci'=>'77778888','fecha_nacimiento'=> '1985-08-22','telefono'=> '70778899','parentesco'=>'Padre','ocupacion'=>'Tutor','direccion'=>'Plan 3000']);
+
+        User::create(['name' => 'Gabriel Rodriguez Silva','email' => 'gabriel@gmail.com','password' => Hash::make('33445566')])->assignRole('ESTUDIANTE');
+        Estudiante::create(['usuario_id' => 18,'ppff_id' => 1, 'nombres' =>'Gabriel','apellidos'=>'Rodriguez Silva','ci'=>'33445566','fecha_nacimiento' => '2007-03-12','telefono'=>'75566445','direccion'=>'Av cumavi','foto'=>'_gabriel.jpg','genero'=>'Masculino','estado' =>'activo']);
+
+        User::create(['name' => 'Lucia Vargas Torres','email' => 'lucia@gmail.com','password' => Hash::make('44556677')])->assignRole('ESTUDIANTE');
+        Estudiante::create(['usuario_id' => 19,'ppff_id' => 2, 'nombres' =>'Lucia','apellidos'=>'Vargas Torres','ci'=>'44556677','fecha_nacimiento' => '2007-04-13','telefono'=>'75566446','direccion'=>'Av eucalipto','foto'=>'_lucia.jpg','genero'=>'Femenino','estado' =>'activo']);
+
+        User::create(['name' => 'Matteo Castro Roca','email' => 'matteo@gmail.com','password' => Hash::make('55667788')])->assignRole('ESTUDIANTE');
+        Estudiante::create(['usuario_id' => 20,'ppff_id' => 3, 'nombres' =>'Matteo','apellidos'=>'Castro Roca','ci'=>'55667788','fecha_nacimiento' => '2007-05-14','telefono'=>'75566457','direccion'=>'Av Banzer','foto'=>'_Matteo.jpg','genero'=>'Masculino','estado' =>'activo']);
+
+        User::create(['name' => 'Samuel Flores Vega','email' => 'samuel@gmail.com','password' => Hash::make('66778899')])->assignRole('ESTUDIANTE');
+        Estudiante::create(['usuario_id' => 21,'ppff_id' => 4, 'nombres' =>'Samuel','apellidos'=>'Flores Vega','ci'=>'66778899','fecha_nacimiento' => '2007-06-15','telefono'=>'75566448','direccion'=>'Plan 300','foto'=>'_samuel.jpg','genero'=>'Masculino','estado' =>'activo']);
+
+        User::create(['name' => 'Mariano Vaca Peres','email' => 'mariano@gmail.com','password' => Hash::make('77889900')])->assignRole('ESTUDIANTE');
+        Estudiante::create(['usuario_id' => 22,'ppff_id' => 5, 'nombres' =>'Mariano','apellidos'=>'Vaca Peres','ci'=>'77889900','fecha_nacimiento' => '2007-07-16','telefono'=>'75566449','direccion'=>'Doble via la Guardia','foto'=>'_mariano.jpg','genero'=>'Masculino','estado' =>'activo']);
+
+        User::create(['name' => 'Santiago Ramires Ardaya','email' => 'santiago@gmail.com','password' => Hash::make('11223344')])->assignRole('ESTUDIANTE');
+        Estudiante::create(['usuario_id' => 22,'ppff_id' => 5, 'nombres' =>'Santiago','apellidos'=>'Ramires Ardaya','ci'=>'11223344','fecha_nacimiento' => '2007-08-17','telefono'=>'75566440','direccion'=>'Calle 24 de Septiembre','foto'=>'_santiago.jpg','genero'=>'Masculino','estado' =>'activo']);
+
+        User::create(['name' => 'Angela Vaca Guzman','email' => 'angela@gmail.com','password' => Hash::make('22334455')])->assignRole('ESTUDIANTE');
+        Estudiante::create(['usuario_id' => 23,'ppff_id' => 6, 'nombres' =>'Angela','apellidos'=>'Vaca Guzman','ci'=>'22334455','fecha_nacimiento' => '2007-09-18','telefono'=>'75566441','direccion'=>'Av 16 de Julio','foto'=>'_angela.jpg','genero'=>'Femenino','estado' =>'activo']);
 
     }
 }

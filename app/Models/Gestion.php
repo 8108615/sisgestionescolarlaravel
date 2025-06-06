@@ -15,4 +15,9 @@ class Gestion extends Model
     {
         return $this->hasMany(Periodo::class);
     }
+
+    public function matriculaciones()
+    {
+        return $this->hasMany(Matriculacion::class);
+    }
 }

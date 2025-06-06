@@ -1,7 +1,7 @@
 @extends('adminlte::page')
 
 @section('content_header')
-    <h1><b>Listado de Estudiantes </b></h1>
+    <h1><b>Listado de Estudiantes Matriculados </b></h1>
     <hr>
 @stop
 
@@ -11,10 +11,10 @@
         <div class="col-md-12">
             <div class="card card-outline card-primary">
                 <div class="card-header">
-                    <h3 class="card-title">Estudiantes Registrados</h3>
+                    <h3 class="card-title">Estudiantes Matriculados</h3>
 
                     <div class="card-tools">
-                        <a href="{{ url('admin/estudiantes/nuevos/create') }}" class="btn btn-primary"> Crear Nuevo Estudiante</a>
+                        <a href="{{ url('admin/matriculaciones/create') }}" class="btn btn-primary"> Crear Nuevo</a>
                     </div>
                     <!-- /.card-tools -->
                 </div>
@@ -24,36 +24,39 @@
                         <thead>
                             <tr>
                                 <th>Nro</th>
-                                
-                                <th style="text-align: center">Foto</th>
+                                <th>Estudiante</th>
+                                <th>Carnet de Identidad</th>
+                                <th>Turno</th>
+                                <th>Gestion</th>
+                                <th>Nivel</th>
+                                <th>Grado</th>
+                                <th>Paralelo</th>
+                                <th>Fecha de Matriculacion</th>
                                 <th>Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($estudiantes as $estudiante)
+                            @foreach ($matriculaciones as $matriculacion)
                                 <tr>
                                     <td style="text-align: center">{{ $loop->iteration }}</td>
                                     
                                     <td>
                                         <div class="row d-flex justify-content-center">
-                                            <a href="{{ url('admin/estudiantes/' . $estudiante->id.'/formaciones') }}" class="btn btn-warning btn-sm">
-                                                <i class="fas fa-tasks"></i> Formaciones
-                                            </a>
-                                            <a href="{{ url('admin/estudiantes/show/' . $estudiante->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Ver</a>
-                                            <a href="{{ url('admin/estudiantes/' . $estudiante->id . '/edit') }}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
-                                            <form action="{{ url('/admin/estudiantes/' . $estudiante->id) }}" method="post"
-                                                id="miFormulario{{ $estudiante->id }}">
+                                            <a href="{{ url('/admin/matriculaciones/' . $matriculacion->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Ver</a>
+                                            <a href="{{ url('/admin/matriculaciones/' . $matriculacion->id . '/edit') }}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
+                                            <form action="{{ url('/admin/matriculaciones/' . $matriculacion->id) }}" method="post"
+                                                id="miFormulario{{ $matriculacion->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="preguntar{{ $estudiante->id }}(event)">
+                                                    onclick="preguntar{{ $matriculacion->id }}(event)">
                                                     <i class="fas fa-trash"></i> Eliminar
                                                 </button>
                                             </form>
                                         </div>
 
                                         <script>
-                                            function preguntar{{ $estudiante->id }}(event) {
+                                            function preguntar{{ $matriculacion->id }}(event) {
                                                 event.preventDefault();
 
                                                 Swal.fire({
@@ -68,7 +71,7 @@
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         // JavaScript puro para enviar el formulario
-                                                        document.getElementById('miFormulario{{ $estudiante->id }}').submit();
+                                                        document.getElementById('miFormulario{{ $matriculacion->id }}').submit();
                                                     }
                                                 });
                                             }

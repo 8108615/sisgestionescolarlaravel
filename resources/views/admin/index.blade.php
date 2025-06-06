@@ -106,6 +106,27 @@
                 </div>
             </div>
         </div>
+
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box zoomP">
+                <img src="{{ url('/img/empleados.gif') }}" width="70px" alt="">
+                <div class="info-box-content">
+                    <span class="info-box-text"><b>Padres de Familia Registrados</b></span>
+                    <span class="info-box-number" style="color: #1d20fa; font-size:15pt">{{ $total_ppffs }} Padres de Familia</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="col-md-3 col-sm-6 col-12">
+            <div class="info-box zoomP">
+                <img src="{{ url('/img/estudiantes.gif') }}" width="70px" alt="">
+                <div class="info-box-content">
+                    <span class="info-box-text"><b>Estudiantes Registrados</b></span>
+                    <span class="info-box-number" style="color: #1d20fa; font-size:15pt">{{ $total_estudiantes }} Estudiantes</span>
+                </div>
+            </div>
+        </div>
+
     </div>
 @stop
 

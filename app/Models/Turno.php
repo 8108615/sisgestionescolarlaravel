@@ -10,4 +10,9 @@ class Turno extends Model
     protected $fillable = [
         'nombre'
     ];
+
+    public function matriculaciones()
+    {
+        return $this->hasMany(Matriculacion::class);
+    }
 }
