@@ -36,27 +36,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            @foreach ($matriculaciones as $matriculacion)
+                            @foreach ($matriculaciones as $matriculacione)
                                 <tr>
                                     <td style="text-align: center">{{ $loop->iteration }}</td>
                                     
                                     <td>
                                         <div class="row d-flex justify-content-center">
-                                            <a href="{{ url('/admin/matriculaciones/' . $matriculacion->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Ver</a>
-                                            <a href="{{ url('/admin/matriculaciones/' . $matriculacion->id . '/edit') }}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
-                                            <form action="{{ url('/admin/matriculaciones/' . $matriculacion->id) }}" method="post"
-                                                id="miFormulario{{ $matriculacion->id }}">
+                                            <a href="{{ url('/admin/matriculaciones/' . $matriculacione->id) }}" class="btn btn-info btn-sm"><i class="fas fa-eye"></i> Ver</a>
+                                            <a href="{{ url('/admin/matriculaciones/' . $matriculacione->id . '/edit') }}" class="btn btn-success btn-sm"><i class="fas fa-pencil-alt"></i> Editar</a>
+                                            <form action="{{ url('/admin/matriculaciones/' . $matriculacione->id) }}" method="post"
+                                                id="miFormulario{{ $matriculacione->id }}">
                                                 @csrf
                                                 @method('DELETE')
                                                 <button type="submit" class="btn btn-danger btn-sm"
-                                                    onclick="preguntar{{ $matriculacion->id }}(event)">
+                                                    onclick="preguntar{{ $matriculacione->id }}(event)">
                                                     <i class="fas fa-trash"></i> Eliminar
                                                 </button>
                                             </form>
                                         </div>
 
                                         <script>
-                                            function preguntar{{ $matriculacion->id }}(event) {
+                                            function preguntar{{ $matriculacione->id }}(event) {
                                                 event.preventDefault();
 
                                                 Swal.fire({
@@ -71,7 +71,7 @@
                                                 }).then((result) => {
                                                     if (result.isConfirmed) {
                                                         // JavaScript puro para enviar el formulario
-                                                        document.getElementById('miFormulario{{ $matriculacion->id }}').submit();
+                                                        document.getElementById('miFormulario{{ $matriculacione->id }}').submit();
                                                     }
                                                 });
                                             }

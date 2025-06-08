@@ -43,8 +43,8 @@ class ConfiguracionController extends Controller
             
             if($request->hasFile('logo')){
                 //Eliminar la Anterior
-                if($configuracion->logo){
-                    unlink(public_path($configuracion->logo));
+                if($configuracion->foto && file_exists(public_path($configuracion->foto))) {
+                unlink(public_path($configuracion->foto));
                 }
                 //Guardar Nuevo Logo
                 $logoPath = $request->file('logo');
