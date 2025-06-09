@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Configuracion;
 use App\Models\Estudiante;
 use App\Models\Gestion;
 use App\Models\Grado;
@@ -9,6 +10,7 @@ use App\Models\Matriculacion;
 use App\Models\Nivel;
 use App\Models\Paralelo;
 use App\Models\Turno;
+use Barryvdh\DomPDF\Facade\PDF;
 use Illuminate\Http\Request;
 
 class MatriculacionController extends Controller
@@ -18,7 +20,7 @@ class MatriculacionController extends Controller
      */
     public function index()
     {
-        $matriculaciones = Matriculacion::all();
+        $matriculaciones = Matriculacion::with('estudiante','turno','gestion','nivel','grado','paralelo')->get();
         return view('admin.matriculaciones.index',compact('matriculaciones'));
     }
 
@@ -90,6 +92,22 @@ class MatriculacionController extends Controller
             'fecha_matriculacion' => 'required',
         ]);
 
+        //validacion para estudiantes ya matriculado
+        $estudiante_duplicado = Matriculacion::where('estudiante_id',$request->estudiante_id)
+        ->where('turno_id',$request->turno_id)
+        ->where('gestion_id',$request->gestion_id)
+        ->where('nivel_id',$request->nivel_id)
+        ->where('grado_id',$request->grado_id)
+        ->where('paralelo_id',$request->paralelo_id)
+        ->exists();
+
+        if($estudiante_duplicado){
+            return redirect()->back()->with([
+                'mensaje' => 'El Estudiante Ya esta Matriculado',
+                'icono' => 'error',
+            ]);
+        }
+
         $matriculacion = new Matriculacion();
         $matriculacion->estudiante_id = $request->estudiante_id;
         $matriculacion->turno_id = $request->turno_id;
@@ -105,12 +123,26 @@ class MatriculacionController extends Controller
         ->with('icono', 'success');
     }
 
+    public function pdf_matricula($id){
+        $configuracion = Configuracion::first();
+        $matricula = Matriculacion::with('estudiante.ppff','turno','gestion','nivel','grado','paralelo')->find($id);
+
+        $pdf = PDF::loadView('admin.matriculaciones.pdf',compact('configuracion','matricula'));
+        $pdf->setPaper('letter','protrait');
+        $pdf->setOption(['defaultFont' => 'sans-serif']);
+        $pdf->setOption(['isHtml5ParserEnabled' => true]);
+        $pdf->setOption(['isRemoteEnabled' => true]);
+        return $pdf->stream('matriculas.pdf');
+    }
+
     /**
      * Display the specified resource.
      */
-    public function show(Matriculacion $matriculacion)
+    public function show( $id)
     {
-        //
+
+        $matricula = Matriculacion::with('estudiante.ppff','turno','gestion','nivel','grado','paralelo')->find($id);
+        return view('admin.matriculaciones.show',compact('matricula'));
     }
 
     /**
