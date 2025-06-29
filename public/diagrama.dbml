@@ -106,3 +106,66 @@ Table matriculaciones {
     grado_id int [ref: > grados.id]
     paralelo_id int [ref: > paralelos.id]
 }
+Table asignaciones {
+    id int [pk, increment] //primary key
+    personal_id int [ref: > personals.id]
+    gestion_id int [ref: > gestiones.id]
+    nivel_id int [ref: > niveles.id]
+    grado_id int [ref: > grados.id]
+    paralelo_id int [ref: > paralelos.id]
+    materia_id int [ref: > materias.id]
+    turno_id int [ref: > turnos.id]
+    estado varchar
+    fecha_asignacion date
+}
+Table pagos {
+    id int [pk, increment] //primary key
+    matriculacion_id int [ref: > matriculaciones.id]
+    monto decimal(10,2)
+    metodo_pago varchar
+    descripcion varchar
+    fecha_pago date
+    estado varchar
+}
+
+Table asistencias {
+    id int [pk, increment] //primary key
+    asignacion_id int [ref: > asignaciones.id]
+    fecha date
+    observacion varchar
+}
+
+Table detalles_asistencias {
+    id int [pk, increment] //primary key
+    asistencia_id int [ref: > asistencias.id]
+    estudiante_id int [ref: > estudiantes.id]
+    estado_asistencia varchar
+}
+
+Table calificaciones {
+    id int [pk, increment] //primary key
+    asignacion_id int [ref: > asignaciones.id]
+    periodo_id int [ref: > periodos.id]
+    tipo varchar
+    descripcion varchar
+    fecha date
+}
+
+Table detalle_calificaciones {
+    id int [pk, increment] //primary key
+    calificacion_id int [ref: > calificaciones.id]
+    estudiante_id int [ref: > estudiantes.id]
+    tipo varchar
+    nota decimal(5,2)
+}
+Table kardexs {
+    id int [pk, increment] //primary key
+    estudiante_id int [ref: > estudiantes.id]
+    asignacion_id int [ref: > asignaciones.id]
+    periodo_id int [ref: > periodos.id]
+    observacion varchar
+    nota varchar
+    fecha date
+}
+
+

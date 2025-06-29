@@ -301,60 +301,70 @@ return [
     'menu' => [
         // Navbar items:
         [
+            'can' => 'admin.configuracion.index',
             'text' => 'Configuracion',
             'url' => 'admin/configuracion',
             'icon' => 'fas fa-fw fa-cog',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.gestiones.index',
             'text' => 'Gestiones',
             'url' => 'admin/gestiones',
             'icon' => 'fas fa-fw fa-tasks',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.periodos.index',
             'text' => 'Periodos',
             'url' => 'admin/periodos',
             'icon' => 'fas fa-fw fa-calendar-alt',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.niveles.index',
             'text' => 'Niveles',
             'url' => 'admin/niveles',
             'icon' => 'fas fa-fw fa-layer-group',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.grados.index',
             'text' => 'Grados',
             'url' => 'admin/grados',
             'icon' => 'fas fa-fw fa-list-alt',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.paralelos.index',
             'text' => 'Paralelos',
             'url' => 'admin/paralelos',
             'icon' => 'fas fa-fw fa-clone',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.turnos.index',
             'text' => 'Turnos',
             'url' => 'admin/turnos',
             'icon' => 'fas fa-fw fa-clock',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.materias.index',
             'text' => 'Materias',
             'url' => 'admin/materias',
             'icon' => 'fas fa-fw fa-book',
             'classes' => 'bg-blue text-white',
         ],
         [
+            'can' => 'admin.roles.index',
             'text' => 'Roles',
             'icon' => 'fas fa-fw fa-user-check',
             'classes' => 'bg-blue text-white',
             'url' => 'admin/roles',
         ],
         [
+            'can' => 'admin.personal.index',
             'text' => 'Personal',
             'icon' => 'fas fa-fw fa-users-cog',
             'classes' => 'bg-blue text-white',
@@ -372,6 +382,14 @@ return [
             ],
         ],
         [
+            'can' => 'admin.asignaciones.index',
+            'text' => 'Asignaciones',
+            'icon' => 'fas fa-fw fa-chalkboard-teacher',
+            'classes' => 'bg-blue text-white',
+            'url' => 'admin/asignaciones',
+        ],
+        [
+            'can' => 'admin.ppffs.index',
             'text' => 'Padres de Familia',
             'icon' => 'fas fa-fw fa-house-user',
             'url' => 'admin/ppffs',
@@ -379,6 +397,7 @@ return [
         ],
 
         [
+            'can' => 'admin.estudiantes.index',
             'text' => 'Estudiantes',
             'icon' => 'fas fa-fw fa-user-graduate',
             'url' => 'admin/estudiantes',
@@ -386,9 +405,40 @@ return [
         ],
 
         [
+            'can' => 'admin.matriculaciones.index',
             'text' => 'Matriculaciones',
             'url' => 'admin/matriculaciones',
             'icon' => 'fas fa-fw fa-clipboard-list',
+            'classes' => 'bg-blue text-white',
+        ],
+        [
+            'can' => 'admin.pagos.index',
+            'text' => 'Pagos',
+            'url' => 'admin/pagos',
+            'icon' => 'fas fa-fw fa-money-bill-wave',
+            'classes' => 'bg-blue text-white',
+        ],
+        [
+            'can' => 'admin.asistencias.index',
+            'text' => 'Asistencias',
+            'url' => 'admin/asistencias',
+            'icon' => 'fas fa-fw fa-user-check',
+            'classes' => 'bg-blue text-white',
+        ],
+
+        [
+            'can' => 'admin.calificaciones.index',
+            'text' => 'Calificaciones',
+            'url' => 'admin/calificaciones',
+            'icon' => 'fas fa-fw fa-graduation-cap',
+            'classes' => 'bg-blue text-white',
+        ],
+
+        [
+            'can' => 'admin.kardexs.index',
+            'text' => 'Kardexs',
+            'url' => 'admin/kardexs',
+            'icon' => 'fas fa-fw fa-clipboard-check',
             'classes' => 'bg-blue text-white',
         ],
     ],
@@ -509,12 +559,12 @@ return [
             ],
         ],
         'Chartjs' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
                     'asset' => false,
-                    'location' => '//cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.0/Chart.bundle.min.js',
+                    'location' => '//cdn.jsdelivr.net/npm/chart.js@3.8.0/dist/chart.min.js',
                 ],
             ],
         ],

@@ -19,4 +19,14 @@ class Estudiante extends Model
     {
         return $this->hasMany(Matriculacion::class);
     }
+
+    public function detalleCalificaciones()
+    {
+        return $this->hasMany(DetalleCalificacion::class);
+    }
+
+    public function kardexs()
+    {
+        return $this->hasMany(Kardex::class);
+    }
 }

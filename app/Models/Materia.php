@@ -12,5 +12,9 @@ class Materia extends Model
         'nombre',
     ];
 
+    public function asignaciones(){
+        return $this->hasMany(Asignacion::class);
+    }
+
     
 }

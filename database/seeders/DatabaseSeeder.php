@@ -14,6 +14,8 @@ use App\Models\Personal;
 use App\Models\Ppff;
 use App\Models\Turno;
 use App\Models\User;
+use App\Models\Matriculacion;
+use App\Models\Asignacion;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -32,7 +34,7 @@ class DatabaseSeeder extends Seeder
         User::create([
             'name' => 'Erick Fernando Morales Gil',
             'email' => 'erick@gmail.com',
-            'password' => Hash::make('12345678')
+            'password' => Hash::make('12345678'),
         ])->assignRole('ADMINISTRADOR');
         Configuracion::create([
             'nombre' => 'Universidad Erick',
@@ -226,7 +228,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Falsa 123',
             'telefono' => '12345678',
             'profesion' => 'Lic. en Educacion',
-            'foto' => 'uploads/fotos/'.time().'_carlos.jpg',
+            'foto' => 'uploads/fotos/'.time().'_carlos.jpg'
         ]);
         //Docente 3
         user::create(['name' => 'Ana Morales', 'email' => 'ana.morales@gmail.com', 'password' => Hash::make('3210987')])->assignRole('DOCENTE');
@@ -240,7 +242,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Libertad 456',
             'telefono' => '65432198',
             'profesion' => 'Lic. en Psicologia',
-            'foto' => 'uploads/fotos/'.time().'_ana.jpg',
+            'foto' => 'uploads/fotos/'.time().'_ana.jpg'
         ]);
 
         //Docente 4
@@ -255,7 +257,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Falsa 123',
             'telefono' => '12345678',
             'profesion' => 'Lic. en Educacion',
-            'foto' => 'uploads/fotos/'.time().'_jorge.jpg',
+            'foto' => 'uploads/fotos/'.time().'_jorge.jpg'
         ]);
         //Docente 5
         user::create(['name' => 'Lucia Mendoza', 'email' => 'lucia.mendoza@gmail.com', 'password' => Hash::make('4567890')])->assignRole('DOCENTE');
@@ -269,7 +271,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Libertad 456',
             'telefono' => '65432198',
             'profesion' => 'Lic. en Psicologia',
-            'foto' => 'uploads/fotos/'.time().'_lucia.jpg',
+            'foto' => 'uploads/fotos/'.time().'_lucia.jpg'
         ]);
 
         //Docente 6
@@ -284,7 +286,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Libertad 456',
             'telefono' => '65432198',
             'profesion' => 'Lic. en Psicologia',
-            'foto' => 'uploads/fotos/'.time().'_roberto.jpg',
+            'foto' => 'uploads/fotos/'.time().'_roberto.jpg'
         ]);
         //Docente 7
         user::create(['name' => 'Sofia Rojas ', 'email' => 'sofia.rojas@gmail.com', 'password' => Hash::make('8901234')])->assignRole('DOCENTE');
@@ -298,7 +300,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Libertad 456',
             'telefono' => '65432198',
             'profesion' => 'Lic. en Psicologia',
-            'foto' => 'uploads/fotos/'.time().'_sofia.jpg',
+            'foto' => 'uploads/fotos/'.time().'_sofia.jpg'
         ]);
 
         //Docente 8
@@ -313,7 +315,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Libertad 456',
             'telefono' => '65432198',
             'profesion' => 'Lic. en Psicologia',
-            'foto' => 'uploads/fotos/'.time().'_mario.jpg',
+            'foto' => 'uploads/fotos/'.time().'_mario.jpg'
         ]);
 
         //Docente 9
@@ -328,7 +330,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Libertad 456',
             'telefono' => '65432198',
             'profesion' => 'Lic. en Psicologia',
-            'foto' => 'uploads/fotos/'.time().'_mauricio.jpg',
+            'foto' => 'uploads/fotos/'.time().'_mauricio.jpg'
         ]);
 
         //Docente 10
@@ -343,7 +345,7 @@ class DatabaseSeeder extends Seeder
             'direccion' => 'Calle Libertad 456',
             'telefono' => '65432198',
             'profesion' => 'Lic. en Psicologia',
-            'foto' => 'uploads/fotos/'.time().'_marialeny.jpg',
+            'foto' => 'uploads/fotos/'.time().'_marialeny.jpg'
         ]);
 
         Ppff::create(['nombres' => 'Luis Fernando','apellidos'=>'Gomez Perez','ci'=>'11112222','fecha_nacimiento'=> '1981-06-18','telefono'=> '70112233','parentesco'=>'Padre','ocupacion'=>'Ingeniero de Sistemas','direccion'=>'Av cumavi']);
@@ -449,6 +451,30 @@ class DatabaseSeeder extends Seeder
         User::create(['name' => 'Santiago Peña','email' => 'santiagopena27@gmail.com','password' => Hash::make('10000027')])->assignRole('ESTUDIANTE');
         Estudiante::create(['usuario_id' => 47,'ppff_id' => 10, 'nombres' =>'Santiago','apellidos'=>'Peña','ci'=>'10000027','fecha_nacimiento' => '2007-01-27','telefono'=>'70000027','direccion'=>'Av Libertad 27','foto'=>'_santiago27.jpg','genero'=>'Masculino','estado' =>'activo']);
 
-
+        Matriculacion::create(['estudiante_id' => 1,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 2,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 3,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 4,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 5,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 6,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 7,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 8,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 9,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 10,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 11,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 12,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 13,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 14,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 15,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 16,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 17,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 18,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 19,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        Matriculacion::create(['estudiante_id' => 20,'turno_id' => 1,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'fecha_matriculacion' => '2025-01-15']);
+        
+        Asignacion::create(['personal_id' => 7,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'materia_id' => 9,'turno_id' => 1, 'fecha_asignacion' => '2025-01-15']);
+        Asignacion::create(['personal_id' => 8,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 9,'paralelo_id' => 9,'materia_id' => 11,'turno_id' => 1, 'fecha_asignacion' => '2025-01-15']);
+        Asignacion::create(['personal_id' => 8,'gestion_id' => 3,'nivel_id' => 3,'grado_id' => 10,'paralelo_id' => 10,'materia_id' => 11,'turno_id' => 1, 'fecha_asignacion' => '2025-01-15']);
+        
     }
 }

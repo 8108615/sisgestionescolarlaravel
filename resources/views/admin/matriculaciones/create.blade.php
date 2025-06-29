@@ -247,7 +247,7 @@
                                         </div>
                                         <input type="date" class="form-control" name="fecha_matriculacion" required>
                                     </div>
-                                    @error('paralelo_id')
+                                    @error('fecha_matriculacion')
                                         <small style="color: red">{{ $message }}</small>
                                     @enderror
                                 </div>
